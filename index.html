@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="TaxTechnologist bridging the gap between tax and technology through finance, data, and automation.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23193f32'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia,serif' font-size='25' font-weight='700' fill='%23d7ed9f'%3EFT%3C/text%3E%3C/svg%3E">
+  <title>TaxTechnologist | Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f4ef;
+      --ink: #1d2925;
+      --muted: #64716b;
+      --green: #245c48;
+      --green-dark: #193f32;
+      --lime: #d7ed9f;
+      --line: #dce1d8;
+      --white: #fff;
+      --serif: Georgia, "Times New Roman", serif;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.6; }
+    a { color: inherit; }
+    button { font: inherit; }
+    .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+
+    .topbar { position: sticky; top: 0; z-index: 5; background: rgb(245 244 239 / 92%); border-bottom: 1px solid rgb(220 225 216 / 75%); backdrop-filter: blur(12px); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 750; letter-spacing: -.04em; }
+    .brand-mark { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 11px; background: var(--green); color: var(--lime); font-family: var(--serif); font-size: 19px; }
+    .nav-links { display: flex; align-items: center; gap: 29px; }
+    .nav-links a { color: var(--muted); font-size: 13px; font-weight: 650; text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-links .contact-link { padding: 10px 16px; border: 1px solid var(--line); border-radius: 99px; color: var(--ink); }
+    .menu-toggle { display: none; border: 1px solid var(--line); border-radius: 10px; padding: 8px 11px; color: var(--ink); background: transparent; cursor: pointer; }
+
+    .hero { position: relative; overflow: hidden; padding: 105px 0 96px; }
+    .hero::after { position: absolute; z-index: -1; content: ""; width: 430px; height: 430px; right: -120px; top: 25px; border: 1px solid #dfe4d9; border-radius: 50%; box-shadow: 0 0 0 40px rgb(223 228 217 / 28%), 0 0 0 80px rgb(223 228 217 / 18%); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--green); font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; }
+    h1 { max-width: 790px; margin: 24px 0 20px; font-family: var(--serif); font-size: clamp(48px, 8vw, 88px); font-weight: 500; letter-spacing: -.065em; line-height: .99; }
+    h1 em { color: var(--green); font-weight: 500; }
+    .hero-copy { max-width: 620px; color: var(--muted); font-size: 17px; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 32px; }
+    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 9px; padding: 0 19px; border: 1px solid var(--green); border-radius: 99px; background: var(--green); color: var(--white); font-size: 13px; font-weight: 700; text-decoration: none; transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); background: var(--green-dark); }
+    .button.secondary { background: transparent; color: var(--green); }
+    .button.secondary:hover { background: #e8ede3; }
+    .hero-note { display: flex; align-items: center; gap: 9px; margin-top: 60px; color: var(--muted); font-size: 12px; }
+    .hero-note span { width: 7px; height: 7px; border-radius: 50%; background: #83a970; }
+
+    section { padding: 83px 0; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 35px; }
+    .section-kicker { margin: 0 0 9px; color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    h2 { margin: 0; font-family: var(--serif); font-size: clamp(36px, 5vw, 54px); font-weight: 500; letter-spacing: -.05em; line-height: 1.08; }
+    .section-intro { max-width: 390px; margin: 0; color: var(--muted); font-size: 14px; }
+    .about { background: var(--green-dark); color: var(--white); }
+    .about .section-kicker { color: var(--lime); }
+    .about-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 74px; align-items: start; }
+    .about h2 { max-width: 340px; }
+    .about-copy { color: #d5e0d9; font-size: 17px; }
+    .about-copy p { margin: 0 0 18px; }
+    .about-copy strong { color: var(--white); font-weight: 650; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 26px; }
+    .about-tags span { padding: 7px 12px; border: 1px solid rgb(255 255 255 / 22%); border-radius: 99px; color: #e4eee7; font-size: 11px; }
+
+    .projects { background: #eeeee7; }
+    .project-subheading { margin: 0 0 15px; font-size: 15px; }
+    .live-projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .live-project-card { display: flex; min-height: 190px; flex-direction: column; padding: 23px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); }
+    .live-project-card h4 { margin: 22px 0 8px; font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -.03em; }
+    .live-project-card p { margin: 0 0 17px; color: var(--muted); font-size: 12px; }
+    .project-link { margin-top: auto; color: var(--green); font-size: 12px; font-weight: 750; text-decoration: none; }
+    .project-link:hover { text-decoration: underline; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project-card { display: flex; flex-direction: column; min-height: 390px; padding: 28px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .card-number { color: #9aa79d; font-family: var(--serif); font-size: 15px; }
+    .card-label { padding: 6px 10px; border-radius: 99px; background: #edf3e6; color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+    .project-card h3 { margin: 27px 0 11px; font-family: var(--serif); font-size: 28px; font-weight: 500; letter-spacing: -.035em; line-height: 1.15; }
+    .project-card > p { margin: 0; color: var(--muted); font-size: 13px; }
+    .project-details { display: grid; gap: 14px; margin-top: 23px; }
+    .detail { padding-top: 13px; border-top: 1px solid #e8ebe5; }
+    .detail strong { display: block; margin-bottom: 3px; color: var(--green); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+    .detail p { margin: 0; color: #49564f; font-size: 12px; }
+
+    .skills-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 72px; }
+    .skills-copy { color: var(--muted); font-size: 14px; }
+    .skill-groups { display: grid; gap: 30px; }
+    .skill-group { padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+    .skill-group:last-child { padding-bottom: 0; border: 0; }
+    .skill-group h3 { margin: 0 0 14px; font-size: 13px; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; }
+    .skill-list span { padding: 9px 13px; border: 1px solid var(--line); border-radius: 9px; background: rgb(255 255 255 / 52%); color: #49564f; font-size: 12px; }
+
+    .education { padding-top: 65px; background: #eeeee7; }
+    .education-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .education-item { display: flex; justify-content: space-between; gap: 18px; padding: 24px; border: 1px solid var(--line); border-radius: 14px; background: var(--white); }
+    .education-item h3 { margin: 0 0 4px; font-size: 15px; }
+    .education-item p { margin: 0; color: var(--muted); font-size: 12px; }
+    .education-year { color: var(--green); font-size: 12px; font-weight: 800; white-space: nowrap; }
+
+    .contact { padding: 72px 0; background: var(--lime); }
+    .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .contact h2 { max-width: 520px; font-size: clamp(34px, 5vw, 50px); }
+    .contact p { margin: 12px 0 0; color: #4c624b; font-size: 14px; }
+    .contact .button { flex-shrink: 0; border-color: var(--green-dark); background: var(--green-dark); }
+    .contact-links { display: flex; flex-shrink: 0; flex-direction: column; align-items: flex-start; gap: 9px; }
+    .contact-detail { color: var(--green-dark); font-size: 13px; font-weight: 650; text-decoration: none; }
+    .contact-detail:hover { text-decoration: underline; }
+    footer { padding: 20px 0; background: var(--green-dark); color: #d5e0d9; font-size: 11px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    footer p { margin: 0; }
+    .back-top { color: var(--lime); text-decoration: none; }
+
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      .nav { min-height: 66px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links { position: absolute; top: 65px; right: 18px; left: 18px; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 8px; border: 1px solid var(--line); border-radius: 13px; background: var(--paper); box-shadow: 0 12px 30px rgb(29 41 37 / 10%); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px; }
+      .nav-links .contact-link { border: 0; }
+      .hero { padding: 78px 0 64px; }
+      .hero::after { width: 280px; height: 280px; right: -190px; top: 45px; }
+      .hero-copy { font-size: 15px; }
+      .hero-note { margin-top: 43px; }
+      section { padding: 64px 0; }
+      .section-heading { display: block; }
+      .section-intro { margin-top: 14px; }
+      .about-grid, .skills-layout { grid-template-columns: 1fr; gap: 25px; }
+      .project-grid, .live-projects, .education-list { grid-template-columns: 1fr; }
+      .project-card { min-height: 0; }
+      .contact-inner { align-items: flex-start; flex-direction: column; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Portfolio home">
+        <span class="brand-mark" aria-hidden="true">FT</span>
+        <span>Tax <span aria-hidden="true"></span> Technology</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a class="contact-link" href="#contact">Get in touch ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="home">
+      <span class="eyebrow">TaxTechnologist · Finance &amp; Technology</span>
+      <h1>Bridging tax and <em>technology.</em></h1>
+      <p class="hero-copy">I bring financial insight and a programmer's approach together to make data clearer, workflows smoother, and compliance easier to manage.</p>
+      <div class="hero-actions">
+        <a class="button" href="#projects">Explore my work <span aria-hidden="true">↓</span></a>
+        <a class="button secondary" href="#about">A little about me</a>
+      </div>
+      <div class="hero-note"><span aria-hidden="true"></span> Bridging the gap between tax and technology</div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-grid wrap">
+        <div>
+          <p class="section-kicker">01 / About me</p>
+          <h2>Numbers meet logic. Better work follows.</h2>
+        </div>
+        <div class="about-copy">
+          <p>I am a <strong>TaxTechnologist</strong> and Finance and Tax Professional with a background in <strong>Computer Programming</strong>. I am passionate about bridging the gap between tax and technology, using database logic and data analytics to optimize financial workflows, manage compliance, and streamline accounting systems.</p>
+          <p>I enjoy turning messy information into organized, useful data—and bringing structure and care to the financial processes behind it.</p>
+          <div class="about-tags" aria-label="Areas of focus">
+            <span>Financial workflows</span><span>Tax compliance</span><span>Data organization</span><span>Process improvement</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="section-kicker">02 / Professional experience</p><h2>Where I've worked</h2></div>
+        </div>
+        <article class="education-item">
+          <div><h3>IT Support</h3><p>MMEC</p></div>
+          <span class="education-year">9 months</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="section-kicker">03 / Selected work</p><h2>Projects &amp; case studies</h2></div>
+          <p class="section-intro">Live websites and case studies that bring together finance, technology, and problem-solving.</p>
+        </div>
+        <h3 class="project-subheading">Live websites</h3>
+        <div class="live-projects">
+          <article class="live-project-card">
+            <span class="card-label">Website</span>
+            <h4>Mngaro Empowerment</h4>
+            <p>Live website project.</p>
+            <a class="project-link" href="https://mngaroempowerment.ct.ws" target="_blank" rel="noopener noreferrer">Visit website ↗</a>
+          </article>
+          <article class="live-project-card">
+            <span class="card-label">Tax technology</span>
+            <h4>FlyTaxTech</h4>
+            <p>Live tax technology website.</p>
+            <a class="project-link" href="https://flytaxtech.xo.je" target="_blank" rel="noopener noreferrer">Visit website ↗</a>
+          </article>
+          <article class="live-project-card">
+            <span class="card-label">Web app</span>
+            <h4>Ingia Drive</h4>
+            <p>Project hosted on GitHub Pages.</p>
+            <a class="project-link" href="https://naomi4803.github.io/ingia_drive/" target="_blank" rel="noopener noreferrer">Visit project ↗</a>
+          </article>
+          <article class="live-project-card">
+            <span class="card-label">Website</span>
+            <h4>LupaLo Lamps</h4>
+            <p>Live website project.</p>
+            <a class="project-link" href="https://lupalolamps.gt.tc" target="_blank" rel="noopener noreferrer">Visit website ↗</a>
+          </article>
+          <article class="live-project-card">
+            <span class="card-label">Web project</span>
+            <h4>Tech</h4>
+            <p>Project hosted on GitHub Pages.</p>
+            <a class="project-link" href="https://naomi4803.github.io/tech/" target="_blank" rel="noopener noreferrer">Visit project ↗</a>
+          </article>
+          <article class="live-project-card">
+            <span class="card-label">Web project</span>
+            <h4>NyumbaLink</h4>
+            <p>Project hosted on GitHub Pages.</p>
+            <a class="project-link" href="https://naomi4803.github.io/nyumbalink/" target="_blank" rel="noopener noreferrer">Visit project ↗</a>
+          </article>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="card-top"><span class="card-number">01</span><span class="card-label">Tech &amp; automation</span></div>
+            <h3>Financial Data Cleaner</h3>
+            <p>A practical approach to turning raw transaction data into clean, consistent accounting records.</p>
+            <div class="project-details">
+              <div class="detail"><strong>What I did</strong><p>Designed a data-cleaning workflow using a script or advanced Excel automation to organize messy transaction data.</p></div>
+              <div class="detail"><strong>Outcome</strong><p>Reduced manual sorting and prepared cleaner sheets for accounting review and audit preparation.</p></div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="card-top"><span class="card-number">02</span><span class="card-label">Tax &amp; compliance</span></div>
+            <h3>Mock Tax Audit &amp; Reconciliation</h3>
+            <p>A simulated year-end review focused on making tax calculations and reconciliations easy to follow.</p>
+            <div class="project-details">
+              <div class="detail"><strong>What I did</strong><p>Simulated a company's year-end, calculated VAT, PAYE, and corporate tax liabilities, and checked the work against applicable iTax requirements.</p></div>
+              <div class="detail"><strong>Outcome</strong><p>Produced a structured reconciliation report to help identify discrepancies and reduce compliance risk.</p></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="skills-layout wrap">
+        <div>
+          <p class="section-kicker">04 / What I work with</p>
+          <h2>Skills &amp; tools</h2>
+          <p class="skills-copy">A blend of financial practice and technical foundations for solving everyday workflow challenges.</p>
+        </div>
+        <div class="skill-groups">
+          <div class="skill-group">
+            <h3>Finance &amp; Tax</h3>
+            <div class="skill-list"><span>KRA iTax System</span><span>Ledger Reconciliation</span><span>Revenue Auditing</span><span>Financial Accounting</span></div>
+          </div>
+          <div class="skill-group">
+            <h3>Technology &amp; Data</h3>
+            <div class="skill-list"><span>Python foundations</span><span>JavaScript foundations</span><span>SQL &amp; Database Logic</span><span>Advanced MS Excel</span><span>VLOOKUP</span><span>Pivot Tables</span><span>Data Analytics</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="education" id="education">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="section-kicker">05 / Learning journey</p><h2>Education &amp; certifications</h2></div>
+        </div>
+        <div class="education-list">
+          <article class="education-item">
+            <div><h3>Diploma in Tax Administration</h3><p>KESRA</p></div>
+            <span class="education-year">2025</span>
+          </article>
+          <article class="education-item">
+            <div><h3>Certificate in Computer Programming</h3><p>IYF</p></div>
+            <span class="education-year">2024</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-inner wrap">
+        <div><p class="section-kicker">Let's connect</p><h2>Have a finance workflow to improve?</h2><p>I'd be glad to hear about it.</p></div>
+        <div class="contact-links">
+          <a class="button" href="mailto:lupalonaomi7@gmail.com">Email me <span aria-hidden="true">↗</span></a>
+          <a class="contact-detail" href="mailto:lupalonaomi7@gmail.com">lupalonaomi7@gmail.com</a>
+          <a class="contact-detail" href="tel:+254715769753">Call me: 0715769753</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner wrap">
+      <p>© <span id="year"></span> TaxTechnologist Portfolio</p>
+      <a class="back-top" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector("#nav-links");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      navigation.classList.toggle("open", !isOpen);
+    });
+
+    navigation.addEventListener("click", (event) => {
+      if (event.target instanceof HTMLAnchorElement) {
+        menuButton.setAttribute("aria-expanded", "false");
+        navigation.classList.remove("open");
+      }
+    });
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
